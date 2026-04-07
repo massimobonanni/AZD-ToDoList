@@ -1,0 +1,14 @@
+name: azd-demo
+metadata:
+  template: azd-init
+
+services:
+  web:
+    project: ./src/web
+    language: dotnet
+    host: appservice
+
+  api:
+    project: ./src/api
+    language: dotnet
+    host: function
