@@ -1,6 +1,6 @@
 # AZD Demo — ToDo List
 
-A C# task manager app that showcases **Azure Developer CLI (azd)** end-to-end:
+A C# todo list app that showcases **Azure Developer CLI (azd)** end-to-end:
 
 | Layer | Tech | Azure Service |
 |---|---|---|
