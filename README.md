@@ -1,4 +1,21 @@
-# AZD Demo — ToDo List
+---
+page_type: sample
+languages:
+- azdeveloper
+- C#
+products:
+- azure
+- azure-app-service
+- azure-functions
+- azure-storage-account
+- azure-monitor
+urlFragment: AZD-ToDoList
+name: Razor Web Page + Azure Functions + Storage Tables
+description: A complete ToDo app with front-end in Razor pages hosted in App Service, backend in Azure Functions hosted in function app and data in Azure Table Storage. Using of Managed Identity to access data (no connection string and keys). Uses Azure Developer CLI (azd) to build, deploy, and monitor
+---
+<!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
+
+# ToDo List - Razor Web Page + Azure Functions + Storage Tables
 
 A C# todo list app that showcases **Azure Developer CLI (azd)** end-to-end:
 
