@@ -33,7 +33,7 @@ resource functionApp 'Microsoft.Web/sites@2023-01-01' = {
     serverFarmId: functionPlan.id
     httpsOnly: true
     siteConfig: {
-      netFrameworkVersion: 'v8.0'
+      netFrameworkVersion: 'v10.0'
       ftpsState: 'Disabled'
       minTlsVersion: '1.2'
       appSettings: [
