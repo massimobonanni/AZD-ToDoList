@@ -36,6 +36,21 @@ module monitoring './core/monitor/monitoring.bicep' = {
 }
 
 // ---------------------------------------------------------------------------
+// Application Insights Dashboard (enables `azd monitor`)
+// ---------------------------------------------------------------------------
+module dashboard './core/monitor/dashboard.bicep' = {
+  name: 'dashboard'
+  scope: rg
+  params: {
+    location: location
+    tags: tags
+    name: 'dash-taskdemo-${resourceSuffix}'
+    applicationInsightsId: monitoring.outputs.applicationInsightsId
+    applicationInsightsName: monitoring.outputs.applicationInsightsName
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Storage Account  (managed-identity only — no shared-key access)
 // ---------------------------------------------------------------------------
 module storage './core/storage/storage.bicep' = {
