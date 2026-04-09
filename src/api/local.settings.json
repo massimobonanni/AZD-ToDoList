@@ -3,6 +3,7 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
-    "TABLE_SERVICE_URI": "http://127.0.0.1:10002/devstoreaccount1"
+    "TABLE_SERVICE_URI": "",
+    "TABLE_SERVICE_CONNECTIONSTRING": "UseDevelopmentStorage=true"
   }
 }

@@ -58,6 +58,8 @@ azd up
 
 ## Run Locally
 
+Run three different instance of terminal:
+
 **Terminal 1 — Storage emulator**
 ```bash
 azurite --silent
@@ -75,7 +77,7 @@ cd src/web
 dotnet run
 ```
 
-Open http://localhost:5000 in your browser.
+Open https://localhost:5000 in your browser.
 
 ---
 

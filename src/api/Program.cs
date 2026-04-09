@@ -13,9 +13,18 @@ var host = new HostBuilder()
 
         services.AddSingleton(sp =>
         {
-            var tableServiceUri = Environment.GetEnvironmentVariable("TABLE_SERVICE_URI")
-                ?? throw new InvalidOperationException("TABLE_SERVICE_URI is not configured.");
-            return new TableServiceClient(new Uri(tableServiceUri), new DefaultAzureCredential());
+            var tableServiceUri = Environment.GetEnvironmentVariable("TABLE_SERVICE_URI");
+            var tableServiceConnectionString = Environment.GetEnvironmentVariable("TABLE_SERVICE_CONNECTIONSTRING");
+            
+            if (string.IsNullOrEmpty(tableServiceUri) && string.IsNullOrEmpty(tableServiceConnectionString))
+                throw new InvalidOperationException("Both TABLE_SERVICE_URI and TABLE_SERVICE_CONNECTIONSTRING are not configured.");
+
+            // if tableServiceUri is not set, use the connection string to create the client
+            if (string.IsNullOrEmpty(tableServiceUri))
+                return new TableServiceClient(tableServiceConnectionString);
+
+            var uri = new Uri(tableServiceUri);
+            return new TableServiceClient(uri, new DefaultAzureCredential());
         });
     })
     .Build();
