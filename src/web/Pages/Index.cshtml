@@ -1,14 +1,14 @@
 @page
 @model TaskDemo.Web.Pages.IndexModel
 @{
-    ViewData["Title"] = "Task Manager";
+    ViewData["Title"] = "Items Manager";
 }
 
 <div class="container" style="max-width: 720px;">
 
     <div class="card shadow-sm mb-4">
         <div class="card-body">
-            <h5 class="card-title">Add a Task</h5>
+            <h5 class="card-title">Add an Item</h5>
             <form method="post" asp-page-handler="Create">
                 <div class="input-group">
                     <input type="text" class="form-control" name="title"
@@ -56,7 +56,7 @@
         @if (!Model.Tasks.Any())
         {
             <div class="list-group-item text-muted text-center py-5">
-                No tasks yet — add one above!
+                No items yet — add one above!
             </div>
         }
     </div>

@@ -27,8 +27,8 @@ public class IndexModel : PageModel
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to fetch tasks from API");
-            ErrorMessage = "Could not load tasks. Is the API running?";
+            _logger.LogError(ex, "Failed to fetch items from API");
+            ErrorMessage = "Could not load items. Is the API running?";
         }
     }
 
@@ -43,7 +43,7 @@ public class IndexModel : PageModel
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to create task");
+            _logger.LogError(ex, "Failed to create item");
         }
 
         return RedirectToPage();
@@ -57,7 +57,7 @@ public class IndexModel : PageModel
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to complete task {Id}", id);
+            _logger.LogError(ex, "Failed to complete item {Id}", id);
         }
 
         return RedirectToPage();
@@ -71,7 +71,7 @@ public class IndexModel : PageModel
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to delete task {Id}", id);
+            _logger.LogError(ex, "Failed to delete item {Id}", id);
         }
 
         return RedirectToPage();
