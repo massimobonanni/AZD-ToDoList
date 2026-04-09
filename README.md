@@ -43,6 +43,7 @@ A C# todo list app that showcases **Azure Developer CLI (azd)** end-to-end:
 ## Deploy to Azure (one command)
 
 ```bash
+azd init -t massimobonanni/AZD-ToDoList
 azd auth login
 azd up
 ```
