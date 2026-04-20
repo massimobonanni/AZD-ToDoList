@@ -6,11 +6,14 @@ param storageAccountName string
 param tableServiceUri string
 param applicationInsightsConnectionString string
 
+//ensure service name tag is not included in baseTags
+var baseTags = reduce(filter(items(tags), item => item.key != 'azd-service-name'), {}, (cur, next) => union(cur, { '${next.key}': next.value }))
+
 // Consumption plan (Windows, dynamic)
 resource functionPlan 'Microsoft.Web/serverfarms@2023-01-01' = {
   name: 'plan-${name}'
   location: location
-  tags: tags
+  tags: baseTags
   sku: {
     name: 'Y1'
     tier: 'Dynamic'
