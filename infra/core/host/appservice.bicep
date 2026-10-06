@@ -7,11 +7,14 @@ param apiUrl string
 
 param applicationInsightsConnectionString string
 
+//ensure service name tag is not included in baseTags
+var baseTags = reduce(filter(items(tags), item => item.key != 'azd-service-name'), {}, (cur, next) => union(cur, { '${next.key}': next.value }))
+
 // Linux App Service Plan (Basic B1)
 resource appServicePlan 'Microsoft.Web/serverfarms@2023-01-01' = {
   name: 'plan-${name}'
   location: location
-  tags: tags
+  tags: baseTags
   sku: {
     name: 'B1'
     tier: 'Basic'

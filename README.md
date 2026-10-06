@@ -17,14 +17,20 @@ description: A complete ToDo app with front-end in Razor pages hosted in App Ser
 
 # ToDo List - Razor Web Page + Azure Functions + Storage Tables
 
+This template scenario is part of the larger **[Microsoft Trainer Demo Deploy Catalog](https://aka.ms/trainer-demo-deploy)**.
+
 A C# todo list app that showcases **Azure Developer CLI (azd)** end-to-end:
 
 | Layer | Tech | Azure Service |
 |---|---|---|
-| Web frontend | ASP.NET Core 8 Razor Pages | Azure App Service (Linux, B1) |
-| API backend | Azure Functions .NET 8 isolated | Consumption plan |
+| Web frontend | ASP.NET Core 10 Razor Pages | Azure App Service (Linux, B1) |
+| API backend | Azure Functions .NET 10 isolated | Consumption plan |
 | Data | Azure Table Storage | Managed Identity (no secrets) |
 | Observability | Application Insights + Log Analytics | — |
+
+**Estimated cost:** ~$2-3/day (B1 App Service + Consumption Functions + Standard LRS Storage + Log Analytics)
+
+**Deployment time:** Approximately 5-8 minutes
 
 ---
 
@@ -33,7 +39,7 @@ A C# todo list app that showcases **Azure Developer CLI (azd)** end-to-end:
 | Tool | Install |
 |---|---|
 | Azure Developer CLI | `winget install Microsoft.Azd` |
-| .NET 8 SDK | https://dot.net |
+| .NET 10 SDK | https://dotnet.microsoft.com/download/dotnet/10.0 |
 | Azure Functions Core Tools v4 | `npm i -g azure-functions-core-tools@4` |
 | Azurite (local storage emulator) | `npm i -g azurite` |
 | Azure subscription | https://azure.com/free |
@@ -95,8 +101,8 @@ azd-todolist/
 │       ├── security/       # RBAC role assignments Bicep
 │       └── storage/        # Storage Account Bicep
 └── src/
-    ├── web/                # ASP.NET Core 8 Razor Pages
-    └── api/                # Azure Functions .NET 8 isolated
+    ├── web/                # ASP.NET Core 10 Razor Pages
+    └── api/                # Azure Functions .NET 10 isolated
 ```
 
 ---
